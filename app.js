@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-// const expressHbs = require('express-handlebars');
+const expressHbs = require('express-handlebars');
 
 const app = express();
 
-// app.engine('handlebars', expressHbs());
-app.set('view engine', 'pug');
+app.engine('handlebars', expressHbs({layoutDir: "views/layouts/", defaultLayout: "main-layout", extname: 'hbs'}));
+app.set('view engine', 'hbs');
 app.set('views', 'views'); // Defining the location of template, default value
 
 const adminData = require('./routes/admin');
